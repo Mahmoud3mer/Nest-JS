@@ -1,5 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { TagsService } from './tags.service';
+import { TagsDTO } from './dto/tag.dto';
 
 @Controller('tags')
 export class TagsController {
@@ -12,12 +13,12 @@ export class TagsController {
     }
 
     @Post()
-    addTag(@Body() tag: any){
+    addTag(@Body() tag: TagsDTO){
         return this._tagsService.addNewTag(tag);
     }
 
     @Put('/:id')
-    updateTag(@Param() param : any , @Body() tagUpdate: any){
+    updateTag(@Param() param : any , @Body() tagUpdate: TagsDTO){
         // console.log(param.id)
         return this._tagsService.updateThisTag(param.id , tagUpdate);
     }

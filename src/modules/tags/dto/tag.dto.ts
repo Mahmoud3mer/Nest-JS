@@ -1,12 +1,14 @@
 import { IsNotEmpty, IsNumber, MaxLength, MinLength } from "class-validator"
+import { ObjectId } from "mongoose"
 
-export class TagsDto{
+export class TagsDTO{
     @IsNotEmpty()
-    @MinLength(3)
-    @MaxLength(6)
     name: string
 
     @IsNotEmpty()
     @IsNumber()
     id: number
+    
+    @IsNotEmpty()
+    createdBy: ObjectId;
 }
