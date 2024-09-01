@@ -14,6 +14,9 @@ export class SignupDTO{
     @MinLength(8)
     @MaxLength(16)
     password: string;
+
+    @IsString()
+    role: string
 }
 
 export class SigInpDTO{
@@ -25,4 +28,6 @@ export class SigInpDTO{
     @MinLength(8)
     @MaxLength(16)
     password: string;
+
+
 }

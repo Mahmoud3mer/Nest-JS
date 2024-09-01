@@ -15,7 +15,7 @@ export class SigninService {
         if (!findUser || !isMatchPass) {
             throw new HttpException('Email or Passowrd is not valid!', HttpStatus.BAD_REQUEST);
         }
-        let token = this._jwtService.sign({name: findUser.name , email: findUser.email , id: findUser._id},{secret: "3mer"})
+        let token = this._jwtService.sign({name: findUser.name , email: findUser.email , id: findUser._id , role: findUser.role},{secret: "3mer"})
         return { message: "Sign in Welcome" , Token: token}
     }
 }
